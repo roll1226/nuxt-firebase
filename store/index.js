@@ -31,7 +31,8 @@ export const actions = {
     postsRef.push().set({
         comment: payload,
         user: state.user.name,
-        date: `${date.getMonth()+1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
+        date: `${date.getMonth()+1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
       })
   },
   INIT_POSTS: firebaseAction(({
